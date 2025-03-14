@@ -2,8 +2,23 @@
   "name": "cosecax",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [ 
+  "workspaces": [
     "backend",
     "frontend"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.0.2",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "start:frontend": "npm run dev --workspace=frontend",
+    "start:backend": "npm run dev --workspace=backend",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "types": "concurrently \"npm run types --workspace=backend\" \"npm run types --workspace=frontend\"",
+    "prettify": "concurrently \"npm run prettify --workspace=backend\" \"npm run prettify --workspace=frontend\""
+  }
 }

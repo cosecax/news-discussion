@@ -1,5 +1,5 @@
-import { trpc, QueryClientProvider, queryClient, trpcClient } from "./lib/trpc"
-import AllNews from "./pages/AllNews/AllNews"
+import { trpc, QueryClientProvider, queryClient, trpcClient } from './lib/trpc'
+import AllNews from './pages/AllNews/AllNews'
 
 const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   return (
