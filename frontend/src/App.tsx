@@ -1,20 +1,19 @@
-function App() {
-  const news = [
-    { id: 1, text: 'news1' },
-    { id: 2, text: 'news2' },
-    { id: 3, text: 'news3' },
-    { id: 4, text: 'news4' },
-    { id: 5, text: 'news5' },
-    { id: 6, text: 'news6' },
-  ]
+import { trpc, QueryClientProvider, queryClient, trpcClient } from "./lib/trpc"
+import AllNews from "./pages/AllNews/AllNews"
+
+const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
-      <h1>News Discussion</h1>
-      <p>news list:</p>
-      {news.map((item) => (
-        <div key={item.id}>{item.text}</div>
-      ))}
-    </div>
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </trpc.Provider>
+  )
+}
+
+const App = () => {
+  return (
+    <TrpcProvider>
+      <AllNews />
+    </TrpcProvider>
   )
 }
 
