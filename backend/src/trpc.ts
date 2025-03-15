@@ -1,19 +1,27 @@
-import { initTRPC } from "@trpc/server";
+import { initTRPC } from '@trpc/server';
+import _ from 'lodash';
+import { z } from 'zod';
 
-const newsList = [
-  { id: 1, text: "news1" },
-  { id: 2, text: "news2" },
-  { id: 3, text: "news3" },
-  { id: 4, text: "news4" },
-  { id: 5, text: "news5" },
-  { id: 6, text: "news6" },
-];
+const newsList = _.times(100, (i) => ({
+  id: String(i),
+  text: `generated random news ${i}`,
+  description: _.times(20, (j) => `<p>Text paragraph of news ${j}</p>`).join(
+    ''
+  ),
+}));
 
 const trpc = initTRPC.create();
 
 export const trpcRouter = trpc.router({
   getNews: trpc.procedure.query(() => {
-    return { newsList };
+    return { newsList: newsList.map((item) => _.pick(item, ['id', 'text'])) };
+  }),
+  getDetailNews: trpc.procedure.input(
+    z.object({
+      id: z.string(),
+    })
+  ).query(({input}) => {
+    return { news: newsList.find(item=>item.id === input.id) || null }
   }),
 });
 
