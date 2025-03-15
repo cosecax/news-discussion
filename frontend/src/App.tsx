@@ -1,5 +1,7 @@
-import { trpc, QueryClientProvider, queryClient, trpcClient } from './lib/trpc'
-import AllNews from './pages/AllNews/AllNews'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { QueryClientProvider, queryClient, trpc, trpcClient } from './lib/trpc'
+import { AllNews, DetailNews } from './pages'
+import { getAllNewsRoute, getDetailNewsRoute } from './lib/routes'
 
 const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -12,7 +14,12 @@ const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
 const App = () => {
   return (
     <TrpcProvider>
-      <AllNews />
+      <BrowserRouter>
+        <Routes>
+          <Route path={getAllNewsRoute()} element={<AllNews />} />
+          <Route path={getDetailNewsRoute({ id: ':id' })} element={<DetailNews />} />
+        </Routes>
+      </BrowserRouter>
     </TrpcProvider>
   )
 }

@@ -20,5 +20,9 @@
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
     "types": "concurrently \"npm run types --workspace=backend\" \"npm run types --workspace=frontend\"",
     "prettify": "concurrently \"npm run prettify --workspace=backend\" \"npm run prettify --workspace=frontend\""
+  },
+  "dependencies": {
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.3.0"
   }
 }
