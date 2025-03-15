@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { trpc } from '../../lib/trpc'
 import { getDetailNewsRoute } from '../../lib/routes'
+import { trpc } from '../../lib/trpc'
 
 const AllNews = () => {
   const { isLoading, isFetching, isError, error, data } = trpc.getNews.useQuery()
@@ -13,8 +13,8 @@ const AllNews = () => {
       <h1>News Discussion</h1>
       <p>news list:</p>
       {data.newsList.map((item) => (
-        <Link to={getDetailNewsRoute({ id: item.id.toString() })}>
-          <div key={item.id}>{item.text}</div>
+        <Link key={item.id} to={getDetailNewsRoute({ id: item.id.toString() })}>
+          <div>{item.text}</div>
         </Link>
       ))}
     </div>
