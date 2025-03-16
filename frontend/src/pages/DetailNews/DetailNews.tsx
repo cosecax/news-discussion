@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { trpc } from '../../lib/trpc'
+import css from './DetailNews.module.scss'
 
 const DetailNews = () => {
   const { id } = useParams()
@@ -11,10 +12,10 @@ const DetailNews = () => {
   if (!data.news) return <span>News not found</span>
 
   return (
-    <div>
-      <h1>{data.news.id}</h1>
-      <p>{data.news.text}</p>
-      <div>
+    <div className={css['detail-news']}>
+      <h1 className={css.id}>{data.news.id}</h1>
+      <p className={css.text}>{data.news.text}</p>
+      <div className={css.inside}>
         <p>Text inside </p>
       </div>
     </div>

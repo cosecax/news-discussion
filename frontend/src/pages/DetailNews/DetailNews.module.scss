@@ -1,0 +1,22 @@
+@use '../../styles/_vars.scss' as var;
+@use '../../styles/_mixins.scss' as *;
+
+.detail-news {
+  .id {
+    @include h1;
+    margin-bottom: 2px;
+  }
+  
+  .inside {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .text {
+    font-size: 14px;
+  
+    & > *:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+}

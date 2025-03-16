@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { QueryClientProvider, queryClient, trpc, trpcClient } from './lib/trpc'
 import { AllNews, DetailNews } from './pages'
 import { getAllNewsRoute, getDetailNewsRoute } from './lib/routes'
+import { Layout } from './components'
+import './styles/global.scss'
 
 const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -16,8 +18,10 @@ const App = () => {
     <TrpcProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={getAllNewsRoute()} element={<AllNews />} />
-          <Route path={getDetailNewsRoute({ id: ':id' })} element={<DetailNews />} />
+          <Route element={<Layout />}>
+            <Route path={getAllNewsRoute()} element={<AllNews />} />
+            <Route path={getDetailNewsRoute({ id: ':id' })} element={<DetailNews />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TrpcProvider>

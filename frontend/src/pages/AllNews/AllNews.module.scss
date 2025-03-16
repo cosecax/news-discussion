@@ -1,0 +1,25 @@
+@use '../../styles/_vars.scss' as var;
+@use '../../styles/_mixins.scss' as *;
+
+.all-news {
+  .news {
+    padding: 20px;
+    border: 1px solid var.$black;
+    border-radius: 10px;
+    & + .news {
+      margin-top: 20px;
+    }
+
+    .title {
+      @include h2;
+
+      .link {
+        @include link;
+      }
+    }
+
+    .text {
+      font-size: 18px;
+    }
+  }
+}
