@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
-import { getAllNewsRoute } from '../../lib/routes'
+import { getAllNewsRoute, getCreateNewsRoute } from '../../lib/routes'
 import css from './Layout.module.scss'
 
 const Layout = () => {
@@ -12,6 +12,11 @@ const Layout = () => {
         <li className={css.item}>
           <Link className={css.link} to={getAllNewsRoute()}>
             Главная
+          </Link>
+        </li>
+        <li className={css.item}>
+          <Link className={css.link} to={getCreateNewsRoute()}>
+            Создать
           </Link>
         </li>
       </ul>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { QueryClientProvider, queryClient, trpc, trpcClient } from './lib/trpc'
-import { AllNews, DetailNews } from './pages'
-import { getAllNewsRoute, getDetailNewsRoute } from './lib/routes'
+import { AllNews, CreateNews, DetailNews } from './pages'
+import { getAllNewsRoute, getCreateNewsRoute, getDetailNewsRoute } from './lib/routes'
 import { Layout } from './components'
 import './styles/global.scss'
 
@@ -21,6 +21,7 @@ const App = () => {
           <Route element={<Layout />}>
             <Route path={getAllNewsRoute()} element={<AllNews />} />
             <Route path={getDetailNewsRoute({ id: ':id' })} element={<DetailNews />} />
+            <Route path={getCreateNewsRoute()} element={<CreateNews />} />
           </Route>
         </Routes>
       </BrowserRouter>

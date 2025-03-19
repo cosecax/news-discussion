@@ -6,5 +6,6 @@ const getAllNewsRoute = () => '/'
 const detailNewsRouteParams = getRouteParams({ id: true })
 export type DetailNewsParams = typeof detailNewsRouteParams
 const getDetailNewsRoute = ({ id }: DetailNewsParams) => `/news/${id}`
+const getCreateNewsRoute = () => '/news/create'
 
-export { getAllNewsRoute, getDetailNewsRoute, detailNewsRouteParams }
+export { getAllNewsRoute, getDetailNewsRoute, detailNewsRouteParams, getCreateNewsRoute }
