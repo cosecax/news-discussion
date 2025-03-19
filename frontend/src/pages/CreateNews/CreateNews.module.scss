@@ -1,11 +1,7 @@
 @use '../../styles/mixins' as *;
 
 .create-news {
-  .title {
-    @include h1;
-  }
-
   .text {
-    
+
   }
 }

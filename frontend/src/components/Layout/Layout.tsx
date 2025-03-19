@@ -1,13 +1,18 @@
 import { Link, Outlet } from 'react-router-dom'
 import { getAllNewsRoute, getCreateNewsRoute } from '../../lib/routes'
+import { Segment } from '../index'
 import css from './Layout.module.scss'
 
 const Layout = () => {
   return (
-    <div className={css.layout}>
-      <p className={css.logo}>
-        <strong>News Discussion</strong>
-      </p>
+    <Segment
+      title={
+        <div className={css.navigation}>
+          <span className={css.logo}>Сайт Новостей</span>
+        </div>
+      }
+      className={css.layout}
+    >
       <ul className={css.menu}>
         <li className={css.item}>
           <Link className={css.link} to={getAllNewsRoute()}>
@@ -24,7 +29,7 @@ const Layout = () => {
       <div className={css.content}>
         <Outlet />
       </div>
-    </div>
+    </Segment>
   )
 }
 

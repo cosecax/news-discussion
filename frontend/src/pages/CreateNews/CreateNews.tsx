@@ -1,11 +1,11 @@
+import { Segment } from '../../components'
 import css from './CreateNews.module.scss'
 
 const CreateNews = () => {
   return (
-    <div className={css['create-news']}>
-      <h1 className={css.title}>Создание новостной заметки</h1>
+    <Segment title="Создание новостной заметки" className={css['create-news']}>
       <span className={css.text}>Форма создания заметки будет здесь...</span>
-    </div>
+    </Segment>
   )
 }
 

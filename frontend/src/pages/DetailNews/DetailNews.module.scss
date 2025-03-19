@@ -2,11 +2,6 @@
 @use '../../styles/_mixins.scss' as *;
 
 .detail-news {
-  .id {
-    @include h1;
-    margin-bottom: 2px;
-  }
-  
   .inside {
     font-size: 18px;
     margin-bottom: 20px;
